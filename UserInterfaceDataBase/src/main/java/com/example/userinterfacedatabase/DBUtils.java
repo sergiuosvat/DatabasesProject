@@ -31,7 +31,7 @@ public class DBUtils {
         ResultSet resultSet = null;
 
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "Serban27#");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
             preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
