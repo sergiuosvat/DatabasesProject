@@ -17,6 +17,7 @@ public class LoginForm extends Application {
         stage.setTitle("Login Form");
         stage.getIcons().add(new Image(Objects.requireNonNull(LoginForm.class.getResourceAsStream("/utcn-logo.png"))));
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

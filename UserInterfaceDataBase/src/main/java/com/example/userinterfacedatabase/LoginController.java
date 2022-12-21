@@ -1,26 +1,32 @@
 package com.example.userinterfacedatabase;
 
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 
-import java.io.IOException;
-import java.util.Objects;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
 
-public class LoginController {
+public class LoginController implements Initializable {
 
-    private Parent root;
-    private Stage stage;
-    private Scene scene;
+    @FXML
+    private TextField tf_username;
 
-    public void loginButton(ActionEvent event) throws IOException {
-        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("MainMenu.fxml")));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    @FXML
+    private Button login_button;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        login_button.setOnAction(event -> {
+            try {
+                DBUtils.logInUser(event,tf_username.getText());
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 }
