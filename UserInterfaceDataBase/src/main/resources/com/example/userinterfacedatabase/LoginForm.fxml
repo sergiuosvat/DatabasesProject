@@ -27,7 +27,7 @@
          <Font name="System Bold" size="18.0" />
       </font>
    </TextField>
-   <Button fx:id="login_button" layoutX="554.0" layoutY="323.0" mnemonicParsing="false" text="Login">
+   <Button fx:id="login_button" focusTraversable="false" layoutX="554.0" layoutY="323.0" mnemonicParsing="false" text="Login">
       <font>
          <Font size="20.0" />
       </font>
