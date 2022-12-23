@@ -10,10 +10,10 @@
    <Button focusTraversable="false" layoutX="93.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Cursuri" />
    <Button focusTraversable="false" layoutX="93.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Alocare Student" />
    <Button fx:id="log_out" focusTraversable="false" layoutX="323.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Log Out" />
-   <Button focusTraversable="false" layoutX="93.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Personale Angajati" />
+   <Button fx:id="datePersAng" focusTraversable="false" layoutX="93.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Cautare date personale" />
    <Button focusTraversable="false" layoutX="323.0" layoutY="106.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Alocare Profesor" />
    <Button fx:id="createStudent" focusTraversable="false" layoutX="323.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Student" />
-   <Button focusTraversable="false" layoutX="323.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Profesor" />
+   <Button fx:id="createProfesor" focusTraversable="false" layoutX="323.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Profesor" />
    <Label layoutX="196.0" layoutY="14.0" text="Admin Panel">
       <font>
          <Font size="36.0" />

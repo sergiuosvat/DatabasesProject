@@ -10,33 +10,31 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class DatePersonaleAdminController extends AdminController implements Initializable {
+public class DatePersonaleProfesorController implements Initializable {
     @FXML
-    private Label nrContract;
+    private Label nrContract_profesor;
     @FXML
-    private Label Nume;
+    private Label Nume_profesor;
     @FXML
-    private Label Cnp;
+    private Label Cnp_profesor;
     @FXML
-    private Label Adresa;
+    private Label Adresa_profesor;
     @FXML
-    private Label Prenume;
+    private Label Prenume_profesor;
     @FXML
-    private Label Iban;
+    private Label Iban_profesor;
     @FXML
-    private Label Tel;
+    private Label Tel_profesor;
     @FXML
-    private Label Email;
+    private Label Email_profesor;
     @FXML
-    private Button return_back;
-    private static String Username;
+    private Button return_back_profesor;
 
+    private static String username_prof;
 
-    public static void setUsername(String username) {
-        Username = username;
+    public static void setUsername_prof(String username){
+        username_prof = username;
     }
-
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Connection connection;
@@ -44,13 +42,13 @@ public class DatePersonaleAdminController extends AdminController implements Ini
         ResultSet resultSet;
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-            preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
-            preparedStatement.setString(1, Username);
+            preparedStatement = connection.prepareStatement("SELECT * FROM profesor WHERE email = ?");
+            preparedStatement.setString(1, username_prof);
             resultSet = preparedStatement.executeQuery();
             if(resultSet.next()) {
                 String cnp_temp = resultSet.getString("CNP");
-                String nume_temp = resultSet.getString("numeAdmin");
-                String prenumeAdmin_temp = resultSet.getString("prenumeAdmin");
+                String nume_temp = resultSet.getString("numeProfesor");
+                String prenumeAdmin_temp = resultSet.getString("prenumeProfesor");
                 String adresa_temp = resultSet.getString("adresa");
                 String tel_temp = resultSet.getString("nrTelefon");
                 String email_temp = resultSet.getString("email");
@@ -61,9 +59,9 @@ public class DatePersonaleAdminController extends AdminController implements Ini
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return_back.setOnAction(event -> {
+        return_back_profesor.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "AdminPanel.fxml", "Welcome!", 600, 400);
+                DBUtils.changeScene(event, "DatePersAngSearch.fxml", "Cauta o persoana", 600, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -71,14 +69,13 @@ public class DatePersonaleAdminController extends AdminController implements Ini
     }
 
     public void setInfo(String cnp, String nume, String prenume, String adresa, String tel, String email, String iban, String nrContract) {
-        Nume.setText(nume);
-        Prenume.setText(prenume);
-        Tel.setText(tel);
-        Adresa.setText(adresa);
-        Iban.setText(iban);
-        Cnp.setText(cnp);
-        Email.setText(email);
-        this.nrContract.setText(nrContract);
+        Nume_profesor.setText(nume);
+        Prenume_profesor.setText(prenume);
+        Tel_profesor.setText(tel);
+        Adresa_profesor.setText(adresa);
+        Iban_profesor.setText(iban);
+        Cnp_profesor.setText(cnp);
+        Email_profesor.setText(email);
+        this.nrContract_profesor.setText(nrContract);
     }
-
 }

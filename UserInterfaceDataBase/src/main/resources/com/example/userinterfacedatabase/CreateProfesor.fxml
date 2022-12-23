@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="485.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.userinterfacedatabase.CreateProfesorController">
+   <TextField fx:id="cnp_prof" focusTraversable="false" layoutX="92.0" layoutY="118.0" promptText="CNP" />
+   <Label alignment="CENTER" layoutX="192.0" layoutY="47.0" text="Creare Cont Profesor">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <TextField fx:id="nume_prof" focusTraversable="false" layoutX="92.0" layoutY="175.0" promptText="Nume" />
+   <TextField fx:id="prenume_prof" focusTraversable="false" layoutX="92.0" layoutY="235.0" promptText="Prenume" />
+   <TextField fx:id="tel_prof" focusTraversable="false" layoutX="307.0" layoutY="118.0" promptText="nrTelefon" />
+   <TextField fx:id="email_prof" focusTraversable="false" layoutX="307.0" layoutY="175.0" promptText="Email" />
+   <TextField fx:id="adresa_prof" focusTraversable="false" layoutX="92.0" layoutY="285.0" promptText="Adresa" />
+   <TextField fx:id="contract_prof" focusTraversable="false" layoutX="307.0" layoutY="285.0" promptText="nrContract" />
+   <TextField fx:id="iban_prof" focusTraversable="false" layoutX="307.0" layoutY="235.0" promptText="Iban" />
+   <Button fx:id="saveProf" focusTraversable="false" layoutX="226.0" layoutY="362.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="149.0" text="Salveaza">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="backProf" focusTraversable="false" layoutX="492.0" layoutY="422.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="94.0" text="Inapoi">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+</Pane>

@@ -19,6 +19,12 @@ public class AdminController implements Initializable {
     @FXML
     private Button createStudent;
 
+    @FXML
+    private Button createProfesor;
+
+    @FXML
+    private Button datePersAng;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         log_out.setOnAction(event -> {
@@ -43,6 +49,23 @@ public class AdminController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
+
+        createProfesor.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "CreateProfesor.fxml", "Creaza Profesor", 600, 485);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        datePersAng.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "DatePersAngSearch.fxml", "Cauta o persoana", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
     }
 
 }

@@ -102,6 +102,9 @@ public class DBUtils {
                 psInsert.setString(10,serie);
                 psInsert.setString(11,grupa);
                 psInsert.executeUpdate();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Studentul a fost creat cu succes!");
+                alert.show();
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -120,6 +123,108 @@ public class DBUtils {
             }
             if(connection!=null)
             {
+                connection.close();
+            }
+        }
+    }
+
+    public static void CreateProfesor(String cnp_prof, String nume_prof, String prenume_prof, String adresa_prof, String tel_prof , String email_prof, String iban_prof, String contract_prof) throws SQLException {
+        Connection connection = null;
+        PreparedStatement psInsert = null;
+        PreparedStatement psCheckUserExists = null;
+        ResultSet resultSet = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM profesor WHERE email = ?");
+            psCheckUserExists.setString(1, email_prof);
+            resultSet = psCheckUserExists.executeQuery();
+            if(resultSet.isBeforeFirst())
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Profesorul exista deja!");
+                alert.show();
+            }
+            else
+            {
+                psInsert = connection.prepareStatement("INSERT INTO profesor(CNP, numeProfesor, prenumeProfesor, adresa, nrTelefon, email, IBAN, nrContract) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                psInsert.setString(1,cnp_prof);
+                psInsert.setString(2,nume_prof);
+                psInsert.setString(3,prenume_prof);
+                psInsert.setString(4,adresa_prof);
+                psInsert.setString(5,tel_prof);
+                psInsert.setString(6,email_prof);
+                psInsert.setString(7,iban_prof);
+                psInsert.setString(8,contract_prof);
+                psInsert.executeUpdate();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Profesorul a fost creat cu succes!");
+                alert.show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            if(psInsert!=null)
+            {
+                psInsert.close();
+            }
+            if(psCheckUserExists!=null)
+            {
+                psCheckUserExists.close();
+            }
+            if(resultSet!=null)
+            {
+                resultSet.close();
+            }
+            if(connection!=null)
+            {
+                connection.close();
+            }
+        }
+    }
+    public static void searchUser(ActionEvent event, String username) throws SQLException {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+            preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
+            preparedStatement.setString(1, username);
+            resultSet = preparedStatement.executeQuery();
+
+            if (!resultSet.isBeforeFirst()) {
+                preparedStatement = connection.prepareStatement("SELECT * FROM profesor WHERE email = ?");
+                preparedStatement.setString(1, username);
+                resultSet = preparedStatement.executeQuery();
+                if (!resultSet.isBeforeFirst()) {
+                    preparedStatement = connection.prepareStatement("SELECT * FROM student WHERE email = ?");
+                    preparedStatement.setString(1, username);
+                    resultSet = preparedStatement.executeQuery();
+                    if (!resultSet.isBeforeFirst()) {
+                        Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Username-ul nu exista!");
+                        alert.show();
+                    } else {
+                        DatePersonaleStudentController.setUsername(username);
+                        changeScene(event, "DatePersonaleStudent.fxml", "Date Personale", 696, 400);
+                    }
+                } else {
+                    DatePersonaleProfesorController.setUsername_prof(username);
+                    changeScene(event, "DatePersonaleProfesor.fxml", "Date personale", 600, 400);
+                }
+            } else {
+                DatePersonaleAdminController.setUsername(username);
+                changeScene(event, "DatePersonaleAdmin.fxml", "Date Personale", 600, 400);
+            }
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
                 connection.close();
             }
         }
