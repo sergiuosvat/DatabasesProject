@@ -4,6 +4,8 @@ module com.example.userinterfacedatabase {
     requires java.sql;
 
 
-    opens com.example.userinterfacedatabase to javafx.fxml;
-    exports com.example.userinterfacedatabase;
+    opens dbproject to javafx.fxml;
+    exports dbproject;
+    exports dbproject.admin;
+    opens dbproject.admin to javafx.fxml;
 }

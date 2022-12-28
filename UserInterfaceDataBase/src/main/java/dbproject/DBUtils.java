@@ -1,5 +1,8 @@
-package com.example.userinterfacedatabase;
+package dbproject;
 
+import dbproject.admin.DatePersonaleAdminController;
+import dbproject.admin.DatePersonaleProfesorController;
+import dbproject.admin.DatePersonaleStudentController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;

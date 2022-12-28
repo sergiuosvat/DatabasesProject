@@ -1,4 +1,4 @@
-package com.example.userinterfacedatabase;
+package dbproject;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                com.example.userinterfacedatabase/com.example.userinterfacedatabase.LoginForm
+                                com.example.userinterfacedatabase/dbproject.LoginForm
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

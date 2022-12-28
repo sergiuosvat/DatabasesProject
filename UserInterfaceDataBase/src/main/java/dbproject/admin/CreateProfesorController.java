@@ -1,5 +1,6 @@
-package com.example.userinterfacedatabase;
+package dbproject.admin;
 
+import dbproject.DBUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

@@ -1,5 +1,7 @@
-package com.example.userinterfacedatabase;
+package dbproject.admin;
 
+import dbproject.Activitate;
+import dbproject.DBUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

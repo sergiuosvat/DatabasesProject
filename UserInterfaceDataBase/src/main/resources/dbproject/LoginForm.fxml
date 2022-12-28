@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.userinterfacedatabase.LoginController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="441.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.LoginController">
    <ImageView fitHeight="400.0" fitWidth="400.0" layoutY="20.0" pickOnBounds="true">
-      <Image url="@../../../logoutcn.jpg" />
+      <Image url="@../logoutcn.jpg" />
    </ImageView>
    <Label alignment="TOP_CENTER" layoutX="533.0" layoutY="34.0" style="-fx-background-color: white;" text="Login">
       <font>
