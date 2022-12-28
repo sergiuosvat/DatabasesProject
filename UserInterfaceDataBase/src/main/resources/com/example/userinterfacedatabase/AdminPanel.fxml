@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.userinterfacedatabase.AdminController">
    <Button fx:id="date_pers" focusTraversable="false" layoutX="93.0" layoutY="106.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Personale" />
-   <Button focusTraversable="false" layoutX="93.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Cursuri" />
+   <Button fx:id="date_activ" focusTraversable="false" layoutX="93.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Activitati" />
    <Button focusTraversable="false" layoutX="93.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Alocare Student" />
    <Button fx:id="log_out" focusTraversable="false" layoutX="323.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Log Out" />
    <Button fx:id="datePersAng" focusTraversable="false" layoutX="93.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Cautare date personale" />

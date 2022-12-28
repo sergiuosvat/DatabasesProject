@@ -25,6 +25,8 @@ public class AdminController implements Initializable {
     @FXML
     private Button datePersAng;
 
+    @FXML
+    private Button date_activ;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         log_out.setOnAction(event -> {
@@ -61,6 +63,13 @@ public class AdminController implements Initializable {
         datePersAng.setOnAction(event -> {
             try {
                 DBUtils.changeScene(event, "DatePersAngSearch.fxml", "Cauta o persoana", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        date_activ.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "DateActivitati.fxml", "Date activitati", 931, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
