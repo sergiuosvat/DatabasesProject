@@ -37,42 +37,49 @@ public class DBUtils {
         ResultSet resultSet = null;
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-            preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
+            preparedStatement = connection.prepareStatement("SELECT * FROM superadministrator WHERE email = ?");
             preparedStatement.setString(1, username);
             resultSet = preparedStatement.executeQuery();
-
-            if (!resultSet.isBeforeFirst()) {
-                preparedStatement = connection.prepareStatement("SELECT * FROM profesor WHERE email = ?");
+            if (!resultSet.isBeforeFirst())
+            {
+                preparedStatement = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
                 preparedStatement.setString(1, username);
                 resultSet = preparedStatement.executeQuery();
                 if (!resultSet.isBeforeFirst()) {
-                    preparedStatement = connection.prepareStatement("SELECT * FROM student WHERE email = ?");
+                    preparedStatement = connection.prepareStatement("SELECT * FROM profesor WHERE email = ?");
                     preparedStatement.setString(1, username);
                     resultSet = preparedStatement.executeQuery();
                     if (!resultSet.isBeforeFirst()) {
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Username-ul nu exista!");
-                        alert.show();
-                    } else {
-                        changeScene(event, "StudentPanel.fxml", "Welcome!", 600, 400);
-                        preparedStatement = connection.prepareStatement("SELECT idStudent from student where email =?");
-                        preparedStatement.setString(1,username);
+                        preparedStatement = connection.prepareStatement("SELECT * FROM student WHERE email = ?");
+                        preparedStatement.setString(1, username);
                         resultSet = preparedStatement.executeQuery();
-                        while (resultSet.next())
-                        {
-                            String id = resultSet.getString(1);
-                            DateActivitatiStudent.setIdStudent(id);
-                            InscriereStudent.setIdStudent(id);
-                            InscriereStudentGrupStudiu.setIdStudent(id);
+                        if (!resultSet.isBeforeFirst()) {
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("Username-ul nu exista!");
+                            alert.show();
+                        } else {
+                            changeScene(event, "StudentPanel.fxml", "Welcome!", 600, 400);
+                            preparedStatement = connection.prepareStatement("SELECT idStudent from student where email =?");
+                            preparedStatement.setString(1,username);
+                            resultSet = preparedStatement.executeQuery();
+                            while (resultSet.next())
+                            {
+                                String id = resultSet.getString(1);
+                                DateActivitatiStudent.setIdStudent(id);
+                                InscriereStudent.setIdStudent(id);
+                                InscriereStudentGrupStudiu.setIdStudent(id);
+                            }
+                            DatePersonaleStudentPovController.setUsername(username);
                         }
-                        DatePersonaleStudentPovController.setUsername(username);
+                    } else {
+                        changeScene(event, "ProfesorPanel.fxml", "Welcome!", 800, 441);
                     }
                 } else {
-                    changeScene(event, "ProfesorPanel.fxml", "Welcome!", 800, 441);
+                    DatePersonaleAdminController.setUsername(username);
+                    changeScene(event, "AdminPanel.fxml", "Welcome!", 600, 400);
                 }
-            } else {
-                DatePersonaleAdminController.setUsername(username);
-                changeScene(event, "AdminPanel.fxml", "Welcome!", 600, 400);
+            }else {
+                changeScene(event,"SuperAdminPanel.fxml", "Welcome!", 600, 400);
             }
         } catch (SQLException | IOException e) {
             e.printStackTrace();
@@ -176,6 +183,59 @@ public class DBUtils {
                 psInsert.executeUpdate();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Profesorul a fost creat cu succes!");
+                alert.show();
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }finally {
+            if(psInsert!=null)
+            {
+                psInsert.close();
+            }
+            if(psCheckUserExists!=null)
+            {
+                psCheckUserExists.close();
+            }
+            if(resultSet!=null)
+            {
+                resultSet.close();
+            }
+            if(connection!=null)
+            {
+                connection.close();
+            }
+        }
+    }
+    public static void CreateAdmin(String cnp_admin, String nume_admin, String prenume_admin, String adresa_admin, String tel_admin , String email_admin, String iban_admin, String contract_admin) throws SQLException {
+        Connection connection = null;
+        PreparedStatement psInsert = null;
+        PreparedStatement psCheckUserExists = null;
+        ResultSet resultSet = null;
+        try{
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+            psCheckUserExists = connection.prepareStatement("SELECT * FROM administrator WHERE email = ?");
+            psCheckUserExists.setString(1, email_admin);
+            resultSet = psCheckUserExists.executeQuery();
+            if(resultSet.isBeforeFirst())
+            {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("Administratorul exista deja!");
+                alert.show();
+            }
+            else
+            {
+                psInsert = connection.prepareStatement("INSERT INTO administrator(CNP, numeAdmin, prenumeAdmin, adresa, nrTelefon, email, IBAN, nrContract) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+                psInsert.setString(1,cnp_admin);
+                psInsert.setString(2,nume_admin);
+                psInsert.setString(3,prenume_admin);
+                psInsert.setString(4,adresa_admin);
+                psInsert.setString(5,tel_admin);
+                psInsert.setString(6,email_admin);
+                psInsert.setString(7,iban_admin);
+                psInsert.setString(8,contract_admin);
+                psInsert.executeUpdate();
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setContentText("Administratorul a fost creat cu succes!");
                 alert.show();
             }
         } catch (SQLException e) {
