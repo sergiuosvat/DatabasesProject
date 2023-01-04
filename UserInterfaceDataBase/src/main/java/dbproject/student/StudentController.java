@@ -1,4 +1,4 @@
-package dbproject.admin;
+package dbproject.student;
 
 import dbproject.DBUtils;
 import javafx.fxml.FXML;
@@ -9,29 +9,21 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class AdminController implements Initializable {
+public class StudentController implements Initializable {
 
+    @FXML
+    public Button date_activ1;
     @FXML
     private Button log_out;
-
     @FXML
     private Button date_pers;
-
-    @FXML
-    private Button createStudent;
-
-    @FXML
-    private Button createProfesor;
-
-    @FXML
-    private Button datePersAng;
-
     @FXML
     private Button date_activ;
+    @FXML
+    private Button grupstud;
 
     @FXML
-    private Button alocStud;
-
+    private Button grupstud1;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         log_out.setOnAction(event -> {
@@ -41,47 +33,38 @@ public class AdminController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-
         date_pers.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "DatePersonaleAdmin.fxml", "Date Personale", 600, 400);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-        createStudent.setOnAction(event -> {
-            try {
-                DBUtils.changeScene(event, "CreateStudent.fxml", "Creaza Student", 600, 485);
-            }catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        createProfesor.setOnAction(event -> {
-            try {
-                DBUtils.changeScene(event, "CreateProfesor.fxml", "Creaza Profesor", 600, 485);
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-        });
-
-        datePersAng.setOnAction(event -> {
-            try {
-                DBUtils.changeScene(event, "DatePersAngSearch.fxml", "Cauta o persoana", 600, 400);
+                DBUtils.changeScene(event, "DatePersonalePovStudent.fxml", "Date Personale", 696, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
         date_activ.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "DateActivitati.fxml", "Date activitati", 931, 400);
+                DBUtils.changeScene(event, "DateActivitatiStudent.fxml", "Date activitati", 931, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
         });
-        alocStud.setOnAction(event -> {
+        date_activ1.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event,"InscriereStudentAdmin.fxml", "Inscrieti un student la o activitate", 600, 400);
+                DBUtils.changeScene(event, "InscriereStudent.fxml", "Inscriere Activitate", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+        });
+        grupstud.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "InscriereGrupStudiu.fxml", "Inscriere grup de studiu", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        grupstud1.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "GrupStudiuStudent.fxml", "Creare/Stergere grup de studiu", 600, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

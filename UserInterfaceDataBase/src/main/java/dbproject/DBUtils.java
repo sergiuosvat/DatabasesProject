@@ -3,6 +3,10 @@ package dbproject;
 import dbproject.admin.DatePersonaleAdminController;
 import dbproject.admin.DatePersonaleProfesorController;
 import dbproject.admin.DatePersonaleStudentController;
+import dbproject.student.DateActivitatiStudent;
+import dbproject.student.DatePersonaleStudentPovController;
+import dbproject.student.InscriereStudent;
+import dbproject.student.InscriereStudentGrupStudiu;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -50,7 +54,18 @@ public class DBUtils {
                         alert.setContentText("Username-ul nu exista!");
                         alert.show();
                     } else {
-                        changeScene(event, "StudentPanel.fxml", "Welcome!", 800, 441);
+                        changeScene(event, "StudentPanel.fxml", "Welcome!", 600, 400);
+                        preparedStatement = connection.prepareStatement("SELECT idStudent from student where email =?");
+                        preparedStatement.setString(1,username);
+                        resultSet = preparedStatement.executeQuery();
+                        while (resultSet.next())
+                        {
+                            String id = resultSet.getString(1);
+                            DateActivitatiStudent.setIdStudent(id);
+                            InscriereStudent.setIdStudent(id);
+                            InscriereStudentGrupStudiu.setIdStudent(id);
+                        }
+                        DatePersonaleStudentPovController.setUsername(username);
                     }
                 } else {
                     changeScene(event, "ProfesorPanel.fxml", "Welcome!", 800, 441);

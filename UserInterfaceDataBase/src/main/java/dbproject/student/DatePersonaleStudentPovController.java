@@ -1,4 +1,4 @@
-package dbproject.admin;
+package dbproject.student;
 
 import dbproject.DBUtils;
 import javafx.fxml.FXML;
@@ -11,7 +11,7 @@ import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
 
-public class DatePersonaleStudentController implements Initializable {
+public class DatePersonaleStudentPovController implements Initializable {
     @FXML
     private Label nrContract;
     @FXML
@@ -72,7 +72,7 @@ public class DatePersonaleStudentController implements Initializable {
         }
         return_back.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "DatePersAngSearch.fxml", "Cauta o persoana", 600, 400);
+                DBUtils.changeScene(event, "StudentPanel.fxml", "Welcome!", 600, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -91,5 +91,6 @@ public class DatePersonaleStudentController implements Initializable {
         this.serie.setText(serie);
         this.an.setText(an);
         this.grupa.setText(grupa);
+
     }
 }

@@ -8,4 +8,6 @@ module com.example.userinterfacedatabase {
     exports dbproject;
     exports dbproject.admin;
     opens dbproject.admin to javafx.fxml;
+    exports dbproject.student;
+    opens dbproject.student to javafx.fxml;
 }

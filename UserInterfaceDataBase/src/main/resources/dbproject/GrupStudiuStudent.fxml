@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.student.GrupStudiuStudent">
+   <Label layoutX="142.0" layoutY="24.0" text="Introduceti informatiile cerute">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <TextField fx:id="nrMin" alignment="CENTER" focusTraversable="false" layoutX="80.0" layoutY="84.0" prefHeight="35.0" prefWidth="157.0" promptText="nrMinStudenti" />
+   <TextField fx:id="nrMax" alignment="CENTER" focusTraversable="false" layoutX="80.0" layoutY="136.0" prefHeight="35.0" prefWidth="157.0" promptText="nrMaxStudenti" />
+   <DatePicker fx:id="dataGrup" focusTraversable="false" layoutX="80.0" layoutY="240.0" prefHeight="25.0" prefWidth="157.0" promptText="dataGrupului" />
+   <TextField fx:id="numeMaterie" alignment="CENTER" focusTraversable="false" layoutX="80.0" layoutY="183.0" prefHeight="35.0" prefWidth="157.0" promptText="numeMaterie" />
+   <Button fx:id="save" focusTraversable="false" layoutX="80.0" layoutY="299.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="157.0" text="Salveaza">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <Button fx:id="back" focusTraversable="false" layoutX="349.0" layoutY="299.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="160.0" text="Inapoi">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <TextField fx:id="idGrup" alignment="CENTER" focusTraversable="false" layoutX="347.0" layoutY="84.0" prefHeight="35.0" prefWidth="160.0" promptText="id-ul grupului" />
+   <Button fx:id="delete" focusTraversable="false" layoutX="349.0" layoutY="158.0" mnemonicParsing="false" text="Sterge Grup">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+</Pane>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.admin.InscriereStudentAdmin">
+    <Label layoutX="83.0" layoutY="40.0" text="Introduceti informatiile cerute">
+        <font>
+          <Font size="36.0" />
+        </font>
+    </Label>
+    <TextField fx:id="idActiv" alignment="CENTER" focusTraversable="false" layoutX="320.0" layoutY="128.0" prefHeight="33.0" prefWidth="222.0" promptText="Id-ul activitatii" />
+    <Button fx:id="save" focusTraversable="false" layoutX="227.0" layoutY="183.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="142.0" text="Inscriere">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
+    <Button fx:id="back" focusTraversable="false" layoutX="228.0" layoutY="313.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="142.0" text="Inapoi">
+        <font>
+          <Font size="24.0" />
+        </font>
+    </Button>
+   <Button fx:id="delete" focusTraversable="false" layoutX="228.0" layoutY="248.0" mnemonicParsing="false" text="Renuntare">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <TextField fx:id="emailStud" alignment="CENTER" focusTraversable="false" layoutX="77.0" layoutY="128.0" prefHeight="33.0" prefWidth="222.0" promptText="emailul studentului" />
+</AnchorPane>
