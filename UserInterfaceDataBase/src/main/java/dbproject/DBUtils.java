@@ -3,10 +3,7 @@ package dbproject;
 import dbproject.admin.DatePersonaleAdminController;
 import dbproject.admin.DatePersonaleProfesorController;
 import dbproject.admin.DatePersonaleStudentController;
-import dbproject.student.DateActivitatiStudent;
-import dbproject.student.DatePersonaleStudentPovController;
-import dbproject.student.InscriereStudent;
-import dbproject.student.InscriereStudentGrupStudiu;
+import dbproject.student.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -67,7 +64,8 @@ public class DBUtils {
                                 String id = resultSet.getString(1);
                                 DateActivitatiStudent.setIdStudent(id);
                                 InscriereStudent.setIdStudent(id);
-                                InscriereStudentGrupStudiu.setIdStudent(id);
+                                InscriereStudentGrupStudiuController.setIdStudent(id);
+                                NoteStudentController.setIdStudent(id);
                             }
                             DatePersonaleStudentPovController.setUsername(username);
                         }

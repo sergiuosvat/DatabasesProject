@@ -8,13 +8,15 @@
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.student.StudentController">
    <Button fx:id="date_pers" focusTraversable="false" layoutX="56.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Personale" />
    <Button fx:id="date_activ" focusTraversable="false" layoutX="56.0" layoutY="194.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Activitati" />
-   <Button fx:id="log_out" focusTraversable="false" layoutX="306.0" layoutY="280.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Log Out" />
-   <Label layoutX="196.0" layoutY="14.0" text="Student Panel">
+   <Button fx:id="log_out" focusTraversable="false" layoutX="300.0" layoutY="333.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Log Out" />
+   <Label layoutX="190.0" layoutY="14.0" text="Student Panel">
       <font>
          <Font size="36.0" />
       </font>
    </Label>
-   <Button fx:id="date_activ1" focusTraversable="false" layoutX="56.0" layoutY="280.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Activitate" />
-   <Button fx:id="grupstud" focusTraversable="false" layoutX="306.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Inscriere Grup de Studiu" />
-   <Button fx:id="grupstud1" focusTraversable="false" layoutX="306.0" layoutY="194.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Creare/Stergere Grup de Studiu" />
+   <Button fx:id="date_activ1" focusTraversable="false" layoutX="56.0" layoutY="264.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Activitate" />
+   <Button fx:id="grupstud" focusTraversable="false" layoutX="300.0" layoutY="120.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Inscriere Grup de Studiu" />
+   <Button fx:id="grupstud1" focusTraversable="false" layoutX="300.0" layoutY="194.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Creare/Stergere Grup de Studiu" />
+   <Button fx:id="note" focusTraversable="false" layoutX="300.0" layoutY="264.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="184.0" text="Note" />
+   <Button fx:id="orar" focusTraversable="false" layoutX="56.0" layoutY="333.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Orar" />
 </Pane>

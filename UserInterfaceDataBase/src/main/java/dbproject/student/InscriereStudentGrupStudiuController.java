@@ -15,7 +15,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class InscriereStudentGrupStudiu implements Initializable {
+public class InscriereStudentGrupStudiuController implements Initializable {
     @FXML
     private Button inscriere;
     @FXML

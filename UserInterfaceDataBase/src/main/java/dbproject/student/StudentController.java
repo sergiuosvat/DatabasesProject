@@ -24,6 +24,10 @@ public class StudentController implements Initializable {
 
     @FXML
     private Button grupstud1;
+    @FXML
+    private Button note;
+    @FXML
+    private Button orar;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         log_out.setOnAction(event -> {
@@ -65,6 +69,20 @@ public class StudentController implements Initializable {
         grupstud1.setOnAction(event -> {
             try {
                 DBUtils.changeScene(event, "GrupStudiuStudent.fxml", "Creare/Stergere grup de studiu", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        note.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "NoteStudent.fxml", "Note", 770,400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        orar.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "Orar.fxml", "Orar", 765,400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
