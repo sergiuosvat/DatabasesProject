@@ -70,7 +70,8 @@ public class DBUtils {
                             DatePersonaleStudentPovController.setUsername(username);
                         }
                     } else {
-                        changeScene(event, "ProfesorPanel.fxml", "Welcome!", 800, 441);
+                        changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 400);
+                        DatePersonaleProfesorPovController.setUsername_prof(username);
                     }
                 } else {
                     DatePersonaleAdminController.setUsername(username);
