@@ -26,7 +26,11 @@ public class ProfessorPanelController implements Initializable {
             }
         });
         note.setOnAction(event -> {
-
+            try {
+                DBUtils.changeScene(event, "NotareStudenti.fxml", "Notare Student", 600, 479);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
         });
         datepers.setOnAction(event -> {
             try {

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="479.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.NotareStudentiController">
+   <Label layoutX="173.0" layoutY="24.0" text="Notare Studenti">
+      <font>
+         <Font size="36.0" />
+      </font>
+   </Label>
+   <Label layoutX="43.0" layoutY="107.0" text="Procentaj Seminar">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="213.0" layoutY="107.0" text="Procentaj Colocviu">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="405.0" layoutY="107.0" text="Procentaj Examen">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="60.0" layoutY="211.0" prefHeight="27.0" prefWidth="112.0" text="Nota Seminar">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="230.0" layoutY="211.0" text="Nota Colocviu">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="423.0" layoutY="211.0" text="Nota Examen">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="notasem" focusTraversable="false" layoutX="59.0" layoutY="260.0" prefHeight="25.0" prefWidth="112.0" />
+   <TextField fx:id="notacoloc" focusTraversable="false" layoutX="231.0" layoutY="260.0" prefHeight="25.0" prefWidth="112.0" />
+   <TextField fx:id="notaexam" focusTraversable="false" layoutX="423.0" layoutY="260.0" prefHeight="25.0" prefWidth="106.0" />
+   <TextField fx:id="email" focusTraversable="false" layoutX="116.0" layoutY="353.0" prefHeight="25.0" prefWidth="141.0" />
+   <Label alignment="CENTER" layoutX="116.0" layoutY="309.0" prefHeight="27.0" prefWidth="141.0" text="Email Student">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label alignment="CENTER" layoutX="334.0" layoutY="309.0" prefHeight="27.0" prefWidth="141.0" text="Materie">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="materie" focusTraversable="false" layoutX="331.0" layoutY="353.0" />
+   <Button fx:id="save" focusTraversable="false" layoutX="237.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Salveaza">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="back" focusTraversable="false" layoutX="486.0" layoutY="416.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="98.0" text="Inapoi">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <TextField fx:id="seminar" focusTraversable="false" layoutX="44.0" layoutY="153.0" prefHeight="25.0" prefWidth="144.0" />
+   <TextField fx:id="colocviu" focusTraversable="false" layoutX="212.0" layoutY="153.0" prefHeight="25.0" prefWidth="147.0" />
+   <TextField fx:id="examen" focusTraversable="false" layoutX="409.0" layoutY="153.0" prefHeight="25.0" prefWidth="141.0" />
+</Pane>
