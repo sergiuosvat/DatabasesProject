@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.profesor.AlocareProfesorPovController">
+   <Label layoutX="169.0" layoutY="28.0" text="Introduceti datele cerute">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Label>
+   <ChoiceBox fx:id="tipactiv" focusTraversable="false" layoutX="50.0" layoutY="130.0" prefHeight="25.0" prefWidth="140.0" />
+   <Label layoutX="50.0" layoutY="89.0" text="Tipul de activitate">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="243.0" layoutY="89.0" text="Data activitatii">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <DatePicker fx:id="data" focusTraversable="false" layoutX="243.0" layoutY="130.0" prefHeight="25.0" prefWidth="113.0" />
+   <Label layoutX="414.0" layoutY="89.0" text="NumarMinimStudenti">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="min" alignment="CENTER" focusTraversable="false" layoutX="415.0" layoutY="130.0" prefHeight="25.0" prefWidth="172.0" />
+   <Label layoutX="33.0" layoutY="200.0" text="NumarMaximStudenti">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="max" alignment="CENTER" focusTraversable="false" layoutX="34.0" layoutY="239.0" prefHeight="25.0" prefWidth="172.0" />
+   <TextField fx:id="durata" focusTraversable="false" layoutX="274.0" layoutY="239.0" prefHeight="25.0" prefWidth="53.0" />
+   <TextField fx:id="frecv" focusTraversable="false" layoutX="376.0" layoutY="239.0" prefHeight="25.0" prefWidth="76.0" />
+   <Button fx:id="save" focusTraversable="false" layoutX="237.0" layoutY="305.0" mnemonicParsing="false" text="Salveaza">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <Button fx:id="back" focusTraversable="false" layoutX="463.0" layoutY="330.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="113.0" text="Inapoi">
+      <font>
+         <Font size="24.0" />
+      </font>
+   </Button>
+   <Label layoutX="272.0" layoutY="200.0" text="Durata">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="376.0" layoutY="200.0" text="Frecventa">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <Label layoutX="477.0" layoutY="200.0" text="NumeMaterie">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Label>
+   <TextField fx:id="materie" focusTraversable="false" layoutX="477.0" layoutY="239.0" prefHeight="25.0" prefWidth="109.0" />
+</Pane>

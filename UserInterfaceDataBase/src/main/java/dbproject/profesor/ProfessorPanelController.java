@@ -1,5 +1,6 @@
-package dbproject;
+package dbproject.profesor;
 
+import dbproject.DBUtils;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -15,6 +16,8 @@ public class ProfessorPanelController implements Initializable {
     private Button note;
     @FXML
     private Button datepers;
+    @FXML
+    private Button alocProf;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -35,6 +38,13 @@ public class ProfessorPanelController implements Initializable {
         datepers.setOnAction(event -> {
             try {
                 DBUtils.changeScene(event, "DatePersonaleProfesorPov.fxml", "Date Personale", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        alocProf.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "AlocareProfesorPov.fxml", "Alocare Profesor", 600, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

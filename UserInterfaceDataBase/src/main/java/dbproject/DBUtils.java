@@ -3,6 +3,8 @@ package dbproject;
 import dbproject.admin.DatePersonaleAdminController;
 import dbproject.admin.DatePersonaleProfesorController;
 import dbproject.admin.DatePersonaleStudentController;
+import dbproject.profesor.AlocareProfesorPovController;
+import dbproject.profesor.DatePersonaleProfesorPovController;
 import dbproject.student.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -71,6 +73,14 @@ public class DBUtils {
                         }
                     } else {
                         changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 400);
+                        preparedStatement = connection.prepareStatement("SELECT idProfesor from profesor where email =?");
+                        preparedStatement.setString(1,username);
+                        resultSet = preparedStatement.executeQuery();
+                        if (resultSet.next())
+                        {
+                            String id = resultSet.getString(1);
+                            AlocareProfesorPovController.setIdProfesor(id);
+                        }
                         DatePersonaleProfesorPovController.setUsername_prof(username);
                     }
                 } else {

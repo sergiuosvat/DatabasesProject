@@ -54,7 +54,7 @@ public class GrupStudiuStudent implements Initializable {
             ResultSet resultSet;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-                preparedStatement = connection.prepareStatement("SELECT * from materie where numeMaterie=?");
+                preparedStatement = connection.prepareStatement("SELECT * from materie where numeMaterie= ?");
                 preparedStatement.setString(1, numeMaterie.getText());
                 resultSet = preparedStatement.executeQuery();
                 while (resultSet.next())

@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
+    @FXML
+    private Button delactiv;
 
     @FXML
     private Button log_out;
@@ -31,6 +33,8 @@ public class AdminController implements Initializable {
 
     @FXML
     private Button alocStud;
+    @FXML
+    private Button alocprof;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -82,6 +86,20 @@ public class AdminController implements Initializable {
         alocStud.setOnAction(event -> {
             try {
                 DBUtils.changeScene(event,"InscriereStudentAdmin.fxml", "Inscrieti un student la o activitate", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        alocprof.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event,"AlocareProfesor.fxml", "Atribuie unui profesor o activitate", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        delactiv.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event,"EliminaActivitate.fxml", "Elimina Activitate", 600, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

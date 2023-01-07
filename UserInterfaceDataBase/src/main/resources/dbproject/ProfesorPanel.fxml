@@ -5,25 +5,30 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.ProfessorPanelController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.profesor.ProfessorPanelController">
     <Label layoutX="178.0" layoutY="14.0" text="Professor Panel">
         <font>
           <Font size="36.0" />
         </font>
     </Label>
-    <Button fx:id="datepers" focusTraversable="false" layoutX="224.0" layoutY="143.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Date Personale">
+    <Button fx:id="datepers" focusTraversable="false" layoutX="225.0" layoutY="108.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Date Personale">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="215.0" mnemonicParsing="false" text="Notare Studenti">
+    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="233.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Notare Studenti">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="289.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="150.0" text="Log Out">
+    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="297.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Log Out">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
+   <Button fx:id="alocProf" focusTraversable="false" layoutX="225.0" layoutY="170.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Alocare Activitate">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
 </Pane>
