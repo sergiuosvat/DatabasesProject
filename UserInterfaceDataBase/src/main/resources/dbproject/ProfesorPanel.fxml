@@ -16,17 +16,22 @@
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="233.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Notare Studenti">
+    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="225.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Notare Studenti">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="297.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Log Out">
+    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Log Out">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
    <Button fx:id="alocProf" focusTraversable="false" layoutX="225.0" layoutY="170.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Alocare Activitate">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="currentDay" focusTraversable="false" layoutX="225.0" layoutY="283.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Orar Zi Curenta">
       <font>
          <Font size="18.0" />
       </font>

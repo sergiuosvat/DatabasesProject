@@ -36,6 +36,10 @@ public class NoteStudentController implements Initializable {
     {
         idStudent = idstudent;
     }
+    public static String getIdStudent()
+    {
+        return idStudent;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

@@ -21,5 +21,5 @@
           <TableColumn fx:id="data" editable="false" prefWidth="149.60003662109375" text="Data" />
       </columns>
     </TableView>
-   <Button fx:id="download" layoutX="658.0" layoutY="274.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Download" />
+   <Button fx:id="download" focusTraversable="false" layoutX="658.0" layoutY="274.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Download" />
 </Pane>
