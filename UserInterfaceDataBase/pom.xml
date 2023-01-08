@@ -69,9 +69,9 @@
                             <mainClass>
                                 com.example.userinterfacedatabase/dbproject.LoginForm
                             </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <launcher>DbProject</launcher>
+                            <jlinkZipName>DbProject</jlinkZipName>
+                            <jlinkImageName>DbProject</jlinkImageName>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
