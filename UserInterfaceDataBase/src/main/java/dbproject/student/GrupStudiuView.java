@@ -1,7 +1,7 @@
 package dbproject.student;
 
 import dbproject.DBUtils;
-import dbproject.GrupStudiu;
+import dbproject.utils.GrupStudiu;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

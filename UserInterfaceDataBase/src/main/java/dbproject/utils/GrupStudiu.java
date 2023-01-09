@@ -1,4 +1,4 @@
-package dbproject;
+package dbproject.utils;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;

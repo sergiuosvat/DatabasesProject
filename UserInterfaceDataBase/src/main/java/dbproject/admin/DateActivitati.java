@@ -1,6 +1,6 @@
 package dbproject.admin;
 
-import dbproject.Activitate;
+import dbproject.utils.Activitate;
 import dbproject.DBUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

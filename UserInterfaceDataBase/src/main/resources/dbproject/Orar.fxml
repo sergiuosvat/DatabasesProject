@@ -14,11 +14,12 @@
         </font>
     </Label>
     <Button fx:id="back" focusTraversable="false" layoutX="658.0" layoutY="346.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Inapoi" />
-    <TableView fx:id="tableView" focusTraversable="false" layoutX="63.0" layoutY="95.0" prefHeight="271.0" prefWidth="568.0">
+    <TableView fx:id="tableView" focusTraversable="false" layoutX="63.0" layoutY="95.0" prefHeight="271.0" prefWidth="563.0">
       <columns>
-          <TableColumn fx:id="student" editable="false" prefWidth="212.0" text="Student" />
-          <TableColumn fx:id="activitate" editable="false" prefWidth="205.59994506835938" text="Activitate" />
-          <TableColumn fx:id="data" editable="false" prefWidth="149.60003662109375" text="Data" />
+          <TableColumn fx:id="activitate" editable="false" prefWidth="120.7999496459961" text="Activitate" />
+         <TableColumn fx:id="materie" editable="false" prefWidth="154.39996337890625" text="Materie" />
+          <TableColumn fx:id="data" editable="false" prefWidth="143.99993896484375" text="Data" />
+          <TableColumn fx:id="student" editable="false" prefWidth="148.00003051757812" text="durataOre" />
       </columns>
     </TableView>
    <Button fx:id="download" focusTraversable="false" layoutX="658.0" layoutY="274.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="99.0" text="Download" />

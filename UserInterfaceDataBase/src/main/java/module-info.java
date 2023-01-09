@@ -16,4 +16,6 @@ module com.example.userinterfacedatabase {
     opens dbproject.superadmin to javafx.fxml;
     exports dbproject.profesor;
     opens dbproject.profesor to javafx.fxml;
+    exports dbproject.utils;
+    opens dbproject.utils to javafx.fxml;
 }

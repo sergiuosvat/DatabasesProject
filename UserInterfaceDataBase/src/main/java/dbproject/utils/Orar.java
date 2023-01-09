@@ -1,22 +1,24 @@
-package dbproject;
+package dbproject.utils;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class Orar {
-    private final StringProperty student;
+    private final StringProperty durata;
     private final StringProperty activitate;
     private final StringProperty data;
+    private final StringProperty materie;
     public Orar()
     {
-        student = new SimpleStringProperty(this, "student");
+        durata = new SimpleStringProperty(this, "student");
         activitate = new SimpleStringProperty(this, "activitate");
         data = new SimpleStringProperty(this,"data");
+        materie = new SimpleStringProperty(this, "materie");
     }
 
-    public StringProperty studentProperty()
+    public StringProperty durataProperty()
     {
-        return student;
+        return durata;
     }
     public StringProperty activitateProperty()
     {
@@ -26,9 +28,10 @@ public class Orar {
     {
         return data;
     }
-    public void setStudent(String student)
+    public StringProperty materieProperty(){return materie;}
+    public void setDurata(String durata)
     {
-        this.student.set(student);
+        this.durata.set(durata);
     }
     public void setActivitate(String activitate)
     {
@@ -38,13 +41,7 @@ public class Orar {
     {
         this.data.set(data);
     }
-
-    @Override
-    public String toString() {
-        return "Orar{" +
-                "student=" + student +
-                ", activitate=" + activitate +
-                ", data=" + data +
-                '}';
-    }
+    public void setMaterie(String materie1) {this.materie.set(materie1);}
 }
+
+

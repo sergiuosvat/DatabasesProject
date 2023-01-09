@@ -1,7 +1,7 @@
 package dbproject.student;
 
 import dbproject.DBUtils;
-import dbproject.Orar;
+import dbproject.utils.Orar;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -33,11 +33,14 @@ public class OrarController implements Initializable {
     private TableColumn<Orar, String> activitate;
     @FXML
     private TableColumn<Orar, String> data;
+    @FXML
+    private TableColumn<Orar, String> materie;
 
-    private static String name;
-    public static void setName(String name1)
+    private static String idStudent;
+    private String numeMaterie;
+    public static void setId(String name1)
     {
-        name = name1;
+        idStudent = name1;
     }
 
     ObservableList<Orar> content = FXCollections.observableArrayList();
@@ -51,24 +54,45 @@ public class OrarController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        student.setCellValueFactory(f -> f.getValue().studentProperty());
+        student.setCellValueFactory(f -> f.getValue().durataProperty());
         activitate.setCellValueFactory(f-> f.getValue().activitateProperty());
         data.setCellValueFactory(f->f.getValue().dataProperty());
+        materie.setCellValueFactory(f->f.getValue().materieProperty());
         Connection connection;
         PreparedStatement preparedStatement;
+        PreparedStatement preparedStatement1;
+        PreparedStatement preparedStatement2;
         ResultSet resultSet;
+        ResultSet resultSet1;
+        ResultSet resultSet2;
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-            preparedStatement = connection.prepareStatement("SELECT * FROM orarstudenti where Student = ?");
-            preparedStatement.setString(1, name);
+            preparedStatement = connection.prepareStatement("SELECT * FROM inscriereactivitate where idStudent = ?");
+            preparedStatement.setString(1, idStudent);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
             {
-                Orar orar = new Orar();
-                orar.setStudent(resultSet.getString("Student"));
-                orar.setActivitate(resultSet.getString("Activitate"));
-                orar.setData(resultSet.getString("Data"));
-                content.add(orar);
+                String idActiv = resultSet.getString("idActivitate");
+                preparedStatement1 = connection.prepareStatement("SELECT  * from activitate where idActivitate = ?");
+                preparedStatement1.setString(1,idActiv);
+                resultSet1 = preparedStatement1.executeQuery();
+                while (resultSet1.next())
+                {
+                    String idMaterie = resultSet1.getString("idMaterie");
+                    preparedStatement2 = connection.prepareStatement("SELECT * from materie where idMaterie = ?");
+                    preparedStatement2.setString(1,idMaterie);
+                    resultSet2 = preparedStatement2.executeQuery();
+                    if (resultSet2.next())
+                    {
+                        numeMaterie = resultSet2.getString("numeMaterie");
+                    }
+                    Orar orar = new Orar();
+                    orar.setDurata(resultSet1.getString("durataOre"));
+                    orar.setActivitate(resultSet1.getString("tipActivitate"));
+                    orar.setData(resultSet1.getString("dataActivitate"));
+                    orar.setMaterie(numeMaterie);
+                    content.add(orar);
+                }
             }
             tableView.setItems(content);
         } catch (SQLException e) {

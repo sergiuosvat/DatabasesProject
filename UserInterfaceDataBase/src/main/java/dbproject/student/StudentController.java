@@ -10,7 +10,10 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class StudentController implements Initializable {
@@ -105,12 +108,14 @@ public class StudentController implements Initializable {
                 preparedStatement1.setString(4,"DA");
                 preparedStatement1.setString(5,"NU");
                 preparedStatement1.executeQuery();
-                Desktop.getDesktop().open(new File("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads"));
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setContentText("Eroare!");
                 alert.show();
                 throw new RuntimeException(e);
+            }
+            try {
+                Desktop.getDesktop().open(new File("C:/ProgramData/MySQL/MySQL Server 8.0/Uploads"));
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

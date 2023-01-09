@@ -65,10 +65,7 @@ public class DBUtils {
                             while (resultSet.next())
                             {
                                 String id = resultSet.getString("idStudent");
-                                String nume = resultSet.getString("numeStudent");
-                                String prenume = resultSet.getString("prenumeStudent");
-                                String numecomp = nume + " " + prenume;
-                                OrarController.setName(numecomp);
+                                OrarController.setId(id);
                                 GrupStudiuView.setIdStudent(id);
                                 InscriereStudent.setIdStudent(id);
                                 InscriereStudentGrupStudiuController.setIdStudent(id);

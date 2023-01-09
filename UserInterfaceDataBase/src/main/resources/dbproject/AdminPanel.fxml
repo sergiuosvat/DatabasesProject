@@ -6,18 +6,19 @@
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.admin.AdminController">
-   <Button fx:id="date_pers" focusTraversable="false" layoutX="93.0" layoutY="106.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Personale" />
-   <Button fx:id="date_activ" focusTraversable="false" layoutX="93.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Orar Complet" />
-   <Button fx:id="alocStud" focusTraversable="false" layoutX="93.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Inscriere Student" />
-   <Button fx:id="log_out" focusTraversable="false" layoutX="226.0" layoutY="353.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Log Out" />
-   <Button fx:id="datePersAng" focusTraversable="false" layoutX="93.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Cautare date personale" />
-   <Button fx:id="alocprof" focusTraversable="false" layoutX="323.0" layoutY="106.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Alocare Profesor" />
-   <Button fx:id="createStudent" focusTraversable="false" layoutX="323.0" layoutY="230.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Student" />
-   <Button fx:id="createProfesor" focusTraversable="false" layoutX="323.0" layoutY="296.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Profesor" />
+   <Button fx:id="date_pers" focusTraversable="false" layoutX="93.0" layoutY="90.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Date Personale" />
+   <Button fx:id="date_activ" focusTraversable="false" layoutX="93.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Orar Complet" />
+   <Button fx:id="alocStud" focusTraversable="false" layoutX="93.0" layoutY="273.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Inscriere Student" />
+   <Button fx:id="log_out" focusTraversable="false" layoutX="323.0" layoutY="331.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Log Out" />
+   <Button fx:id="datePersAng" focusTraversable="false" layoutX="93.0" layoutY="152.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Cautare date personale" />
+   <Button fx:id="alocprof" focusTraversable="false" layoutX="323.0" layoutY="90.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Alocare Profesor" />
+   <Button fx:id="createStudent" focusTraversable="false" layoutX="323.0" layoutY="214.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Student" />
+   <Button fx:id="createProfesor" focusTraversable="false" layoutX="323.0" layoutY="273.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Creare Profesor" />
    <Label layoutX="196.0" layoutY="14.0" text="Admin Panel">
       <font>
          <Font size="36.0" />
       </font>
    </Label>
-   <Button fx:id="delactiv" focusTraversable="false" layoutX="323.0" layoutY="168.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Elimina Activitate" />
+   <Button fx:id="delactiv" focusTraversable="false" layoutX="323.0" layoutY="152.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Elimina Activitate" />
+   <Button fx:id="inscriereGrup" focusTraversable="false" layoutX="93.0" layoutY="331.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="148.0" text="Inscriere Student Grup" />
 </Pane>

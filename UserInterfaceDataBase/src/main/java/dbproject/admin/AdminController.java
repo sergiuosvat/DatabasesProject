@@ -35,6 +35,8 @@ public class AdminController implements Initializable {
     private Button alocStud;
     @FXML
     private Button alocprof;
+    @FXML
+    private Button inscriereGrup;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -100,6 +102,13 @@ public class AdminController implements Initializable {
         delactiv.setOnAction(event -> {
             try {
                 DBUtils.changeScene(event,"EliminaActivitate.fxml", "Elimina Activitate", 600, 400);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        inscriereGrup.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event,"InscriereStudentGrupAdmin.fxml", "Inscrie un student intr-un grup ", 600, 521);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
