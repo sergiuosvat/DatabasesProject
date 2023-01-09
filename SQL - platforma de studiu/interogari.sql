@@ -9,8 +9,8 @@ drop procedure if exists programStudent; # ok
 drop procedure if exists programProfesor; # ok
 
 create view orarStudenti as select 
-group_concat(distinct s.idStudent, ') ', s.numeStudent,' ', s.prenumeStudent, ' '  order by s.idStudent separator '\n') as 'Student', 
-concat(ia.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate' ,
+group_concat(distinct s.numeStudent,' ', s.prenumeStudent, ' '  order by s.idStudent separator '\n') as 'Student', 
+concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate' ,
 a.dataActivitate as 'Data'
 from student s
 inner join inscriereActivitate ia using (idStudent)
@@ -29,7 +29,7 @@ end //
 delimiter ;
 
 create view noteStudent as select
-concat(s.idStudent, ') ', s.numeStudent, ' ', s.prenumeStudent) as 'Student', 
+concat(s.numeStudent, ' ', s.prenumeStudent) as 'Student', 
 si.notaMaterie1 as 'Nota 1', si.notaMaterie2 as 'Nota 2', si.notaMaterie3 as 'Nota 3',
 si.notaMaterie4 as 'Nota 4', si.notaMaterie5 as 'Nota 5', si.notaMaterie6 as 'Nota 6',
 si.medie as 'Medie'
@@ -40,7 +40,7 @@ delimiter //
 create procedure programStudent(givenStudentId int, ziCurenta varchar(2), toateActivitatile varchar(2) ,fisierZiCurenta varchar(2), fisierToateActivitatile varchar(2)) 
 begin
 	if(ziCurenta = 'DA') then
-		select concat(ia.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from inscriereActivitate ia
 		inner join activitate a using (idActivitate)
@@ -51,7 +51,7 @@ begin
     end if;
     
 	if(fisierZiCurenta = 'DA') then
-		select concat(ia.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from inscriereActivitate ia
 		inner join activitate a using (idActivitate)
@@ -65,7 +65,7 @@ begin
     end if;
     
     if(toateActivitatile = 'DA') then
-		select concat(ia.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data' 
 		from inscriereActivitate ia
 		inner join activitate a using (idActivitate)
@@ -76,7 +76,7 @@ begin
     end if;
     
     if(fisierToateActivitatile = 'DA') then
-		select concat(ia.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data' 
 		from inscriereActivitate ia
 		inner join activitate a using (idActivitate)
@@ -95,7 +95,7 @@ delimiter //
 create procedure programProfesor(givenProfessorId int, ziCurenta varchar(2), toateActivitatile varchar(2) ,fisierZiCurenta varchar(2), fisierToateActivitatile varchar(2)) 
 begin
 	if(ziCurenta = 'DA') then
-		select concat(a.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from activitate a
 		inner join materie m using (idMaterie)
@@ -105,7 +105,7 @@ begin
     end if;
     
 	if(fisierZiCurenta = 'DA') then
-		select concat(a.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from activitate a
 		inner join materie m using (idMaterie)
@@ -118,7 +118,7 @@ begin
     end if;
     
     if(toateActivitatile = 'DA') then
-		select concat(a.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data' 
 		from activitate a
 		inner join materie m using (idMaterie)
@@ -128,7 +128,7 @@ begin
     end if;
     
     if(fisierToateActivitatile = 'DA') then
-		select concat(a.idActivitate, ') ', a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
+		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data'
 		from activitate a
 		inner join materie m using (idMaterie)

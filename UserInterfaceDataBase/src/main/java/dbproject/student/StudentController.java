@@ -22,7 +22,7 @@ public class StudentController implements Initializable {
     @FXML
     private Button date_pers;
     @FXML
-    private Button date_activ;
+    private Button grupStud;
     @FXML
     private Button grupstud;
 
@@ -50,9 +50,9 @@ public class StudentController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        date_activ.setOnAction(event -> {
+        grupStud.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "DateActivitatiStudent.fxml", "Date activitati", 931, 400);
+                DBUtils.changeScene(event, "GrupStudiuView.fxml", "Date activitati", 658, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
@@ -81,7 +81,7 @@ public class StudentController implements Initializable {
         });
         note.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "NoteStudent.fxml", "Note", 770,400);
+                DBUtils.changeScene(event, "NoteStudent.fxml", "Note", 926,400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

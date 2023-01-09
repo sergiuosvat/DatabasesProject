@@ -23,6 +23,8 @@ public class InscriereStudent implements Initializable {
     public Button delete;
 
     private static String idStudent;
+    private String idMaterie;
+    private String idActivitate;
 
     public static void setIdStudent(String idStudent1)
     {
@@ -39,14 +41,31 @@ public class InscriereStudent implements Initializable {
             }
         });
         save.setOnAction(event -> {
-            String s = idActiv.getText();
             Connection connection;
             PreparedStatement preparedStatement;
+            PreparedStatement preparedStatement2;
+            PreparedStatement preparedStatement3;
+            ResultSet resultSet1;
+            ResultSet resultSet2;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+                preparedStatement2 = connection.prepareStatement("SELECT * from materie where numeMaterie = ?");
+                preparedStatement2.setString(1,idActiv.getText());
+                resultSet1 = preparedStatement2.executeQuery();
+                if(resultSet1.next())
+                {
+                    idMaterie = resultSet1.getString("idMaterie");
+                }
+                preparedStatement3 = connection.prepareStatement("SELECT * from activitate where idMaterie = ?");
+                preparedStatement3.setString(1,idMaterie);
+                resultSet2 = preparedStatement3.executeQuery();
+                if (resultSet2.next())
+                {
+                    idActivitate = resultSet2.getString("idActivitate");
+                }
                 preparedStatement = connection.prepareStatement("CALL adaugaParticipantActivitate(?, ?)");
                 preparedStatement.setString(1, idStudent);
-                preparedStatement.setString(2,s);
+                preparedStatement.setString(2,idActivitate);
                 preparedStatement.executeQuery();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Ati fost adaugat cu succes!");
@@ -59,14 +78,31 @@ public class InscriereStudent implements Initializable {
             }
         });
         delete.setOnAction(event -> {
-            String a = idActiv.getText();
             Connection connection;
             PreparedStatement preparedStatement;
+            PreparedStatement preparedStatement2;
+            PreparedStatement preparedStatement3;
+            ResultSet resultSet1;
+            ResultSet resultSet2;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+                preparedStatement2 = connection.prepareStatement("SELECT * from materie where numeMaterie = ?");
+                preparedStatement2.setString(1,idActiv.getText());
+                resultSet1 = preparedStatement2.executeQuery();
+                if(resultSet1.next())
+                {
+                    idMaterie = resultSet1.getString("idMaterie");
+                }
+                preparedStatement3 = connection.prepareStatement("SELECT * from activitate where idMaterie = ?");
+                preparedStatement3.setString(1,idMaterie);
+                resultSet2 = preparedStatement3.executeQuery();
+                if (resultSet2.next())
+                {
+                    idActivitate = resultSet2.getString("idActivitate");
+                }
                 preparedStatement = connection.prepareStatement("CALL eliminaParticipantActivitate(?, ?)");
                 preparedStatement.setString(1, idStudent);
-                preparedStatement.setString(2,a);
+                preparedStatement.setString(2,idActivitate);
                 preparedStatement.executeQuery();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Ati fost eliminat cu succes!");

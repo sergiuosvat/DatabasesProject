@@ -25,6 +25,8 @@ public class InscriereStudentAdmin implements Initializable {
     private TextField emailStud;
 
     private static String idStudent;
+    private String idMaterie;
+    private String idActivitate;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle)
@@ -37,13 +39,30 @@ public class InscriereStudentAdmin implements Initializable {
             }
         });
         save.setOnAction(event -> {
-            String s = idActiv.getText();
             Connection connection;
             PreparedStatement preparedStatement;
             PreparedStatement preparedStatement1;
+            PreparedStatement preparedStatement2;
+            PreparedStatement preparedStatement3;
             ResultSet resultSet;
+            ResultSet resultSet1;
+            ResultSet resultSet2;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+                preparedStatement2 = connection.prepareStatement("SELECT * from materie where numeMaterie = ?");
+                preparedStatement2.setString(1,idActiv.getText());
+                resultSet1 = preparedStatement2.executeQuery();
+                if(resultSet1.next())
+                {
+                    idMaterie = resultSet1.getString("idMaterie");
+                }
+                preparedStatement3 = connection.prepareStatement("SELECT * from activitate where idMaterie = ?");
+                preparedStatement3.setString(1,idMaterie);
+                resultSet2 = preparedStatement3.executeQuery();
+                if (resultSet2.next())
+                {
+                    idActivitate = resultSet2.getString("idActivitate");
+                }
                 preparedStatement1 = connection.prepareStatement("SELECT * from student where email = ?");
                 preparedStatement1.setString(1, emailStud.getText());
                 resultSet = preparedStatement1.executeQuery();
@@ -53,7 +72,7 @@ public class InscriereStudentAdmin implements Initializable {
                 }
                 preparedStatement = connection.prepareStatement("CALL adaugaParticipantActivitate(?, ?)");
                 preparedStatement.setString(1, idStudent);
-                preparedStatement.setString(2,s);
+                preparedStatement.setString(2,idActivitate);
                 preparedStatement.executeQuery();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Ati adaugat cu succes!");
@@ -66,14 +85,31 @@ public class InscriereStudentAdmin implements Initializable {
             }
         });
         delete.setOnAction(event -> {
-            String a = idActiv.getText();
             Connection connection;
             PreparedStatement preparedStatement;
             PreparedStatement preparedStatement1;
+            PreparedStatement preparedStatement2;
+            PreparedStatement preparedStatement3;
             ResultSet resultSet;
+            ResultSet resultSet1;
+            ResultSet resultSet2;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-                preparedStatement1 = connection.prepareStatement("SELECT idStudent from student where email = ?");
+                preparedStatement2 = connection.prepareStatement("SELECT * from materie where numeMaterie = ?");
+                preparedStatement2.setString(1,idActiv.getText());
+                resultSet1 = preparedStatement2.executeQuery();
+                if(resultSet1.next())
+                {
+                    idMaterie = resultSet1.getString("idMaterie");
+                }
+                preparedStatement3 = connection.prepareStatement("SELECT * from activitate where idMaterie = ?");
+                preparedStatement3.setString(1,idMaterie);
+                resultSet2 = preparedStatement3.executeQuery();
+                if (resultSet2.next())
+                {
+                    idActivitate = resultSet2.getString("idActivitate");
+                }
+                preparedStatement1 = connection.prepareStatement("SELECT * from student where email = ?");
                 preparedStatement1.setString(1, emailStud.getText());
                 resultSet = preparedStatement1.executeQuery();
                 while (resultSet.next())
@@ -82,7 +118,7 @@ public class InscriereStudentAdmin implements Initializable {
                 }
                 preparedStatement = connection.prepareStatement("CALL eliminaParticipantActivitate(?, ?)");
                 preparedStatement.setString(1, idStudent);
-                preparedStatement.setString(2,a);
+                preparedStatement.setString(2,idActivitate);
                 preparedStatement.executeQuery();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Ati eliminat cu succes!");

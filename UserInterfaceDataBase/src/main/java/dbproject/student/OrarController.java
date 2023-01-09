@@ -34,6 +34,12 @@ public class OrarController implements Initializable {
     @FXML
     private TableColumn<Orar, String> data;
 
+    private static String name;
+    public static void setName(String name1)
+    {
+        name = name1;
+    }
+
     ObservableList<Orar> content = FXCollections.observableArrayList();
 
     @Override
@@ -53,7 +59,8 @@ public class OrarController implements Initializable {
         ResultSet resultSet;
         try{
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-            preparedStatement = connection.prepareStatement("SELECT * FROM orarstudenti");
+            preparedStatement = connection.prepareStatement("SELECT * FROM orarstudenti where Student = ?");
+            preparedStatement.setString(1, name);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next())
             {

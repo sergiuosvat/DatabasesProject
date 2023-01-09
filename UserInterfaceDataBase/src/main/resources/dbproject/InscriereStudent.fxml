@@ -7,12 +7,12 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.student.InscriereStudent">
-    <Label layoutX="95.0" layoutY="38.0" text="Introduceti id-ul activitatii">
+    <Label layoutX="95.0" layoutY="38.0" text="Introduceti numele materiei">
         <font>
           <Font size="36.0" />
         </font>
     </Label>
-    <TextField fx:id="idActiv" alignment="CENTER" layoutX="182.0" layoutY="130.0" prefHeight="33.0" prefWidth="222.0" promptText="Id-ul activitatii" />
+    <TextField fx:id="idActiv" alignment="CENTER" layoutX="182.0" layoutY="130.0" prefHeight="33.0" prefWidth="222.0" promptText="numele materiei" />
     <Button fx:id="save" layoutX="227.0" layoutY="183.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="142.0" text="Inscriere">
         <font>
           <Font size="24.0" />

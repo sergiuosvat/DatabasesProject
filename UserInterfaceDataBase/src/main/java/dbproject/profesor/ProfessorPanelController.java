@@ -28,6 +28,8 @@ public class ProfessorPanelController implements Initializable {
     private Button alocProf;
     @FXML
     private Button currentDay;
+    @FXML
+    private Button orarComplet;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -77,6 +79,13 @@ public class ProfessorPanelController implements Initializable {
                 alert.setContentText("Eroare!");
                 alert.show();
                 throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        orarComplet.setOnAction(event -> {
+            try {
+                DBUtils.changeScene(event, "DateActivitatiProfesor.fxml", "Orar complet", 658, 400);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

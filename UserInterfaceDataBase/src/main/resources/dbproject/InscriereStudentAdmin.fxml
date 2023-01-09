@@ -12,7 +12,7 @@
           <Font size="36.0" />
         </font>
     </Label>
-    <TextField fx:id="idActiv" alignment="CENTER" focusTraversable="false" layoutX="320.0" layoutY="128.0" prefHeight="33.0" prefWidth="222.0" promptText="Id-ul activitatii" />
+    <TextField fx:id="idActiv" alignment="CENTER" focusTraversable="false" layoutX="320.0" layoutY="128.0" prefHeight="33.0" prefWidth="222.0" promptText="numele activitatii" />
     <Button fx:id="save" focusTraversable="false" layoutX="227.0" layoutY="183.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="142.0" text="Inscriere">
         <font>
           <Font size="24.0" />

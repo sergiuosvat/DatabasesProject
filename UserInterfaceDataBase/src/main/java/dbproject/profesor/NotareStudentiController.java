@@ -40,7 +40,7 @@ public class NotareStudentiController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         back.setOnAction(event -> {
             try {
-                DBUtils.changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 400);
+                DBUtils.changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 473);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

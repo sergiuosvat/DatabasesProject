@@ -5,6 +5,7 @@ import dbproject.admin.DatePersonaleProfesorController;
 import dbproject.admin.DatePersonaleStudentController;
 import dbproject.profesor.AlocareProfesorPovController;
 import dbproject.profesor.DatePersonaleProfesorPovController;
+import dbproject.profesor.OrarCompletProfesorController;
 import dbproject.student.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -58,13 +59,17 @@ public class DBUtils {
                             alert.show();
                         } else {
                             changeScene(event, "StudentPanel.fxml", "Welcome!", 600, 400);
-                            preparedStatement = connection.prepareStatement("SELECT idStudent from student where email =?");
+                            preparedStatement = connection.prepareStatement("SELECT * from student where email =?");
                             preparedStatement.setString(1,username);
                             resultSet = preparedStatement.executeQuery();
                             while (resultSet.next())
                             {
-                                String id = resultSet.getString(1);
-                                DateActivitatiStudent.setIdStudent(id);
+                                String id = resultSet.getString("idStudent");
+                                String nume = resultSet.getString("numeStudent");
+                                String prenume = resultSet.getString("prenumeStudent");
+                                String numecomp = nume + " " + prenume;
+                                OrarController.setName(numecomp);
+                                GrupStudiuView.setIdStudent(id);
                                 InscriereStudent.setIdStudent(id);
                                 InscriereStudentGrupStudiuController.setIdStudent(id);
                                 NoteStudentController.setIdStudent(id);
@@ -72,7 +77,7 @@ public class DBUtils {
                             DatePersonaleStudentPovController.setUsername(username);
                         }
                     } else {
-                        changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 400);
+                        changeScene(event, "ProfesorPanel.fxml", "Welcome!", 600, 473);
                         preparedStatement = connection.prepareStatement("SELECT idProfesor from profesor where email =?");
                         preparedStatement.setString(1,username);
                         resultSet = preparedStatement.executeQuery();
@@ -80,6 +85,7 @@ public class DBUtils {
                         {
                             String id = resultSet.getString(1);
                             AlocareProfesorPovController.setIdProfesor(id);
+                            OrarCompletProfesorController.setIdProfesorPov(id);
                         }
                         DatePersonaleProfesorPovController.setUsername_prof(username);
                     }

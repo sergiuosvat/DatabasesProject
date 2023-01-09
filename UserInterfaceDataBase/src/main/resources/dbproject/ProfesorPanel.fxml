@@ -5,33 +5,38 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.profesor.ProfessorPanelController">
-    <Label layoutX="178.0" layoutY="14.0" text="Professor Panel">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dbproject.profesor.ProfessorPanelController">
+    <Label layoutX="193.0" layoutY="14.0" text="Profesor Panel">
         <font>
           <Font size="36.0" />
         </font>
     </Label>
-    <Button fx:id="datepers" focusTraversable="false" layoutX="225.0" layoutY="108.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Date Personale">
+    <Button fx:id="datepers" focusTraversable="false" layoutX="225.0" layoutY="101.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Date Personale">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="225.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Notare Studenti">
+    <Button fx:id="note" focusTraversable="false" layoutX="225.0" layoutY="217.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Notare Studenti">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="338.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Log Out">
+    <Button fx:id="logout" focusTraversable="false" layoutX="225.0" layoutY="390.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Log Out">
         <font>
           <Font size="18.0" />
         </font>
     </Button>
-   <Button fx:id="alocProf" focusTraversable="false" layoutX="225.0" layoutY="170.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Alocare Activitate">
+   <Button fx:id="alocProf" focusTraversable="false" layoutX="225.0" layoutY="160.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Creaza Activitate">
       <font>
          <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="currentDay" focusTraversable="false" layoutX="225.0" layoutY="283.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Orar Zi Curenta">
+   <Button fx:id="currentDay" focusTraversable="false" layoutX="225.0" layoutY="276.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Orar Zi Curenta">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+   <Button fx:id="orarComplet" focusTraversable="false" layoutX="225.0" layoutY="334.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="165.0" text="Orar Complet">
       <font>
          <Font size="18.0" />
       </font>
