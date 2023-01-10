@@ -154,7 +154,9 @@ delimiter ;
 delimiter //
 create procedure sugestiiParticipantiGrupStudiu(givenGroupId int)
 begin
-	select distinct concat(s.numeStudent, ' ', s.prenumeStudent) as 'Student'
+	drop table if exists sugestii;
+    create table sugestii as
+	select distinct s.email as 'Student'
     from student s where 
     s.idStudent not in (select idStudent from inscriereActivitate where idActivitate not in 
     (select idActivitate from activitate where dataActivitate not in (select dataGrup from grupStudiu where idGrup = givenGroupId))) and
