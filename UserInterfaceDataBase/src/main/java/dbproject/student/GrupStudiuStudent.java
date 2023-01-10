@@ -32,8 +32,11 @@ public class GrupStudiuStudent implements Initializable {
     private TextField idGrup;
     @FXML
     private Button delete;
+    @FXML
+    private TextField profName;
 
     private String idMaterie;
+    private String idProf;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -51,7 +54,9 @@ public class GrupStudiuStudent implements Initializable {
             Connection connection;
             PreparedStatement preparedStatement;
             PreparedStatement preparedStatement1;
+            PreparedStatement preparedStatement2;
             ResultSet resultSet;
+            ResultSet resultSet1;
             try{
                 connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
                 preparedStatement = connection.prepareStatement("SELECT * from materie where numeMaterie= ?");
@@ -61,12 +66,20 @@ public class GrupStudiuStudent implements Initializable {
                 {
                     idMaterie = resultSet.getString("idMaterie");
                 }
-                preparedStatement1 = connection.prepareStatement("CALL adaugaGrupStudiu(?, ?, ?, ?)");
+                preparedStatement2 = connection.prepareStatement("SELECT * from profesor where email = ?");
+                preparedStatement2.setString(1,profName.getText());
+                resultSet1 = preparedStatement2.executeQuery();
+                if (resultSet1.next())
+                {
+                    idProf = resultSet1.getString("idProfesor");
+                }
+                preparedStatement1 = connection.prepareStatement("CALL adaugaGrupStudiu(?, ?, ?, ?, ?)");
                 LocalDate myDate = dataGrup.getValue();
                 preparedStatement1.setString(1,myDate.toString());
                 preparedStatement1.setString(2,min);
                 preparedStatement1.setString(3,max);
                 preparedStatement1.setString(4,idMaterie);
+                preparedStatement1.setString(5,idProf);
                 preparedStatement1.executeQuery();
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setContentText("Ati fost adaugat cu succes!");

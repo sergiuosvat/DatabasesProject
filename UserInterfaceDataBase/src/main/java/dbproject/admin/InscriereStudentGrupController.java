@@ -26,11 +26,10 @@ public class InscriereStudentGrupController implements Initializable {
     private TextField idGrup;
     @FXML
     private ListView<String> listView;
+    @FXML
+    private Button suggestions;
     private String idStudent;
     ObservableList<String> content = FXCollections.observableArrayList();
-    private int total;
-    private String id;
-    private String email;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -69,43 +68,28 @@ public class InscriereStudentGrupController implements Initializable {
                 throw new RuntimeException(e);
             }
         });
-        Connection connection;
-        PreparedStatement preparedStatement;
-        PreparedStatement preparedStatement1;
-        PreparedStatement preparedStatement2;
-        ResultSet resultSet;
-        ResultSet resultSet1;
-        ResultSet resultSet2;
-        try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
-            preparedStatement = connection.prepareStatement("SELECT  COUNT(*) as total from student");
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet.next())
-            {
-                total = resultSet.getInt("total");
-            }
-            for (int i = 1;i<=total;i++)
-            {
-                preparedStatement1 = connection.prepareStatement("SELECT * from student where idStudent = ?");
-                preparedStatement1.setString(1, String.valueOf(i));
-                resultSet1 = preparedStatement1.executeQuery();
-                if (resultSet1.next())
+        suggestions.setOnAction(event -> {
+            Connection connection;
+            PreparedStatement preparedStatement;
+            PreparedStatement preparedStatement1;
+            ResultSet resultSet;
+            try {
+                connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/platformastudiu", "root", "root");
+                preparedStatement = connection.prepareStatement("CALL sugestiiParticipantiGrupStudiu(?)");
+                preparedStatement.setString(1,idGrup.getText());
+                preparedStatement.executeQuery();
+                preparedStatement1 = connection.prepareStatement("SELECT * from sugestii");
+                resultSet = preparedStatement1.executeQuery();
+                while (resultSet.next())
                 {
-                    id = resultSet1.getString("idStudent");
-                    email = resultSet1.getString("email");
-                }
-
-                preparedStatement2 = connection.prepareStatement("SELECT idGrup from inscrieregrupstudiu where idStudent = ?");
-                preparedStatement2.setString(1,id);
-                resultSet2 = preparedStatement2.executeQuery();
-                if (!resultSet2.next())
-                {
+                    String email = resultSet.getString("Student");
                     content.add(email);
                 }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-        listView.setItems(content);
+            listView.setItems(content);
+        });
+
     }
 }

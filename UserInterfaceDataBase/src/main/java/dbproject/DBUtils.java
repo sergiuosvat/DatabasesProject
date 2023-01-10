@@ -5,6 +5,7 @@ import dbproject.admin.DatePersonaleProfesorController;
 import dbproject.admin.DatePersonaleStudentController;
 import dbproject.profesor.AlocareProfesorPovController;
 import dbproject.profesor.DatePersonaleProfesorPovController;
+import dbproject.profesor.OrarAstaziProfesorController;
 import dbproject.profesor.OrarCompletProfesorController;
 import dbproject.student.*;
 import javafx.event.ActionEvent;
@@ -70,6 +71,7 @@ public class DBUtils {
                                 InscriereStudent.setIdStudent(id);
                                 InscriereStudentGrupStudiuController.setIdStudent(id);
                                 NoteStudentController.setIdStudent(id);
+                                OrarAstaziController.setIdStudent(id);
                             }
                             DatePersonaleStudentPovController.setUsername(username);
                         }
@@ -83,6 +85,7 @@ public class DBUtils {
                             String id = resultSet.getString(1);
                             AlocareProfesorPovController.setIdProfesor(id);
                             OrarCompletProfesorController.setIdProfesorPov(id);
+                            OrarAstaziProfesorController.setIdProfesor(id);
                         }
                         DatePersonaleProfesorPovController.setUsername_prof(username);
                     }

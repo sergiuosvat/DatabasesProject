@@ -17,7 +17,7 @@
    <TextField fx:id="nrMax" alignment="CENTER" focusTraversable="false" layoutX="80.0" layoutY="136.0" prefHeight="35.0" prefWidth="157.0" promptText="nrMaxStudenti" />
    <DatePicker fx:id="dataGrup" focusTraversable="false" layoutX="80.0" layoutY="240.0" prefHeight="25.0" prefWidth="157.0" promptText="dataGrupului" />
    <TextField fx:id="numeMaterie" alignment="CENTER" focusTraversable="false" layoutX="80.0" layoutY="183.0" prefHeight="35.0" prefWidth="157.0" promptText="numeMaterie" />
-   <Button fx:id="save" focusTraversable="false" layoutX="80.0" layoutY="299.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="157.0" text="Salveaza">
+   <Button fx:id="save" focusTraversable="false" layoutX="80.0" layoutY="325.0" mnemonicParsing="false" prefHeight="51.0" prefWidth="157.0" text="Salveaza">
       <font>
          <Font size="24.0" />
       </font>
@@ -33,4 +33,5 @@
          <Font size="24.0" />
       </font>
    </Button>
+   <TextField fx:id="profName" focusTraversable="false" layoutX="80.0" layoutY="287.0" prefHeight="25.0" prefWidth="157.0" promptText="Emailul profesorului" />
 </Pane>
