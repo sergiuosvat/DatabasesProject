@@ -7,9 +7,10 @@ drop procedure if exists procOrarStudenti; # ok - trebuie sters mereu fisierul c
 drop view if exists noteStudent; # ok 
 drop procedure if exists programStudent; # ok
 drop procedure if exists programProfesor; # ok
+drop procedure if exists sugestiiParticipantiGrupStudiu;
 
 create view orarStudenti as select 
-group_concat(distinct s.numeStudent,' ', s.prenumeStudent, ' '  order by s.idStudent separator '\n') as 'Student', 
+group_concat(s.numeStudent,' ', s.prenumeStudent, ' '  order by s.idStudent separator ',\n') as 'Student', 
 concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate' ,
 a.dataActivitate as 'Data'
 from student s
@@ -30,8 +31,8 @@ delimiter ;
 
 create view noteStudent as select
 concat(s.numeStudent, ' ', s.prenumeStudent) as 'Student', 
-si.notaMaterie1 as 'Nota 1', si.notaMaterie2 as 'Nota 2', si.notaMaterie3 as 'Nota 3',
-si.notaMaterie4 as 'Nota 4', si.notaMaterie5 as 'Nota 5', si.notaMaterie6 as 'Nota 6',
+si.notaMaterie1 as 'Nota Algebra', si.notaMaterie2 as 'Nota Analiza', si.notaMaterie3 as 'Nota Baze De Date',
+si.notaMaterie4 as 'Nota Algoritmica', si.notaMaterie5 as 'Nota Programare', si.notaMaterie6 as 'Nota Proiectare',
 si.medie as 'Medie'
 from student s
 inner join situatie si using (idStudent);
@@ -40,6 +41,8 @@ delimiter //
 create procedure programStudent(givenStudentId int, ziCurenta varchar(2), toateActivitatile varchar(2) ,fisierZiCurenta varchar(2), fisierToateActivitatile varchar(2)) 
 begin
 	if(ziCurenta = 'DA') then
+		drop table if exists tabelZiCurentaStud;
+		create table tabelZiCurentaStud
 		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from inscriereActivitate ia
@@ -65,6 +68,8 @@ begin
     end if;
     
     if(toateActivitatile = 'DA') then
+		drop table if exists tabelToateActivitatileStud;
+        create table tabelToateActivitatileStud
 		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data' 
 		from inscriereActivitate ia
@@ -95,6 +100,8 @@ delimiter //
 create procedure programProfesor(givenProfessorId int, ziCurenta varchar(2), toateActivitatile varchar(2) ,fisierZiCurenta varchar(2), fisierToateActivitatile varchar(2)) 
 begin
 	if(ziCurenta = 'DA') then
+		drop table if exists tabelZiCurentaProf;
+		create table tabelZiCurentaProf
 		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		time(a.dataActivitate) as 'Ora' 
 		from activitate a
@@ -118,6 +125,8 @@ begin
     end if;
     
     if(toateActivitatile = 'DA') then
+		drop table if exists tabelToateActivitatileProf;
+        create table tabelToateActivitatileProf
 		select concat(a.tipActivitate, ' ', m.numeMaterie) as 'Activitate',
 		a.dataActivitate as 'Data' 
 		from activitate a
@@ -142,4 +151,16 @@ begin
 end //
 delimiter ;
 
+delimiter //
+create procedure sugestiiParticipantiGrupStudiu(givenGroupId int)
+begin
+	select distinct concat(s.numeStudent, ' ', s.prenumeStudent) as 'Student'
+    from student s where 
+    s.idStudent not in (select idStudent from inscriereActivitate where idActivitate not in 
+    (select idActivitate from activitate where dataActivitate not in (select dataGrup from grupStudiu where idGrup = givenGroupId))) and
+    s.idStudent not in (select idStudent from inscriereGrupStudiu where idGrup not in 
+    (select idGrup from grupStudiu where dataGrup not in (select dataGrup from grupStudiu where idGrup = givenGroupId)))
+    order by s.idStudent;
+end //
+delimiter ;
 

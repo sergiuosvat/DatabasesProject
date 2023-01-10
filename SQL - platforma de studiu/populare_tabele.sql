@@ -1,6 +1,6 @@
 use platformaStudiu;
 
-insert into superadministrator(email) values
+insert into superAdministrator(email) values
 ("email1@superadmin.ro");
 
 insert into administrator(CNP, numeAdmin, prenumeAdmin, adresa, nrTelefon, email, IBAN, nrContract) values
@@ -44,8 +44,8 @@ insert into activitate(tipActivitate, dataActivitate, nrMinStudenti, nrCrtStuden
 -- ('Examen', '2022-12-29', 100, 111, 2, 3),
 -- ('Colocviu', '2023-01-15', 24, 24, 5, 8);
 
-insert into grupStudiu(dataGrup, nrMinParticipanti, nrCrtParticipanti, nrMaxParticipanti, idMaterie) values
-('2023-12-30 18:00:00', 5, 30, 30, 2), ('2023-01-15 16:00:00', 5, 0, 30, 4);
+insert into grupStudiu(dataGrup, nrMinParticipanti, nrCrtParticipanti, nrMaxParticipanti, idMaterie, idProfesor) values
+('2023-12-30 18:00:00', 5, 30, 30, 2, null), ('2023-01-15 16:00:00', 5, 0, 30, 4, null);
 
 insert into inscriereActivitate(idStudent, idActivitate) values
 (1, 2), (1, 3), (4, 1), (4, 3), (5, 1), (5, 2), (5, 4), (6, 4), (7, 4), (9, 3);

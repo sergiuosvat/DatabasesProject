@@ -50,6 +50,8 @@ begin
         set notaMaterie6 = (procSem * notaSem + procCol * notaCol + procExam * notaExam)/100
         where situatie.idStudent = givenStudentId;
 	end if;
+    update situatie
+    set medie = (4*notaMaterie1+5*notaMaterie2+5*notaMaterie3+6*notaMaterie4+5*notaMaterie5+5*notaMaterie6)/30;
 end //
 delimiter ;
 
@@ -93,11 +95,18 @@ end //
 delimiter ;
 
 delimiter //
-create procedure adaugaGrupStudiu(dataGr datetime, nrMin int, nrMax int, idMat int)
+create procedure adaugaGrupStudiu(dataGr datetime, nrMin int, nrMax int, idMat int, idProf int)
 begin
 	if((select count(*) from grupStudiu where (dataGrup = dataGr and idMaterie = idMat)) = 0 and now() < dataGr) then
-    insert into grupstudiu (dataGrup, nrMinParticipanti, nrCrtParticipanti, nrMaxParticipanti, idMaterie) values
-    (dataGr, nrMin, 0, nrMax, idMat);
+		if((select count(*) from activitate where (dataActivitate = dataGr and idProfesor = idProf)) = 0 and 
+			(select count(*) from grupStudiu where (dataGrup = dataGr and idProfesor = idProf)) = 0) then
+			insert into grupstudiu (dataGrup, nrMinParticipanti, nrCrtParticipanti, nrMaxParticipanti, idMaterie, idProfesor) values
+			(dataGr, nrMin, 0, nrMax, idMat, idProf);
+        elseif((select count(*) from activitate where (dataActivitate = dataGr and idProfesor = idProf)) != 0 or
+			(select count(*) from grupStudiu where (dataGrup = dataGr and idProfesor = idProf)) != 0) then
+			insert into grupstudiu (dataGrup, nrMinParticipanti, nrCrtParticipanti, nrMaxParticipanti, idMaterie, idProfesor) values
+			(dataGr, nrMin, 0, nrMax, idMat, null);
+        end if;
     end if;
 end //
 delimiter ;

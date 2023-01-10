@@ -99,7 +99,9 @@ nrMinParticipanti int default 5,
 nrCrtParticipanti int,
 nrMaxParticipanti int default 30,
 idMaterie int, 
-foreign key (idMaterie) references materie (idMaterie) on delete cascade
+foreign key (idMaterie) references materie (idMaterie) on delete cascade,
+idProfesor int,
+foreign key (idProfesor) references profesor (idProfesor)
 );
 
 create table if not exists inscriereActivitate(

@@ -44,3 +44,5 @@ begin
 	where idGrup = old.idGrup and nrCrtParticipanti > 0;
 end //
 delimiter ;
+
+
